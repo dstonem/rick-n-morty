@@ -1,9 +1,26 @@
 import "./App.css";
+import { useEffect } from "react";
+import CharacterInfoContainer from "./components/characterFetcher/CharacterInfo/CharacterInfoContainer";
+import Button from "./components/characterFetcher/Button/Button";
+import useFetchChar from "./utils/hooks/useFetchChar";
 
 function App() {
-  return (
+  const [char, getCharInfo] = useFetchChar();
+
+  useEffect(() => {
+    (async () => await getCharInfo())();
+  }, []);
+
+  return !char ? (
+    <p>...loading...</p>
+  ) : (
     <div className="App">
-      <p>*belch*</p>
+      <CharacterInfoContainer
+        source={char.image}
+        name={char.name}
+        status={char.status}
+      />
+      <Button handleClick={getCharInfo} />
     </div>
   );
 }
