@@ -7,11 +7,10 @@ import useFetchChar from "./utils/hooks/useFetchChar";
 function App() {
   const [char, getCharInfo] = useFetchChar();
 
-  useEffect(() => {
-    (async () => await getCharInfo())();
-  }, []);
+  // eslint-disable-next-line
+  useEffect(getCharInfo, []);
 
-  return !char ? (
+  return char === {} ? (
     <p>...loading...</p>
   ) : (
     <div className="App">
