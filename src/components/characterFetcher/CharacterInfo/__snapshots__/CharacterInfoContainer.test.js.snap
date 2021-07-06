@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterInfoContainer renders correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <img
+      alt="rick"
+      data-testid="img"
+      src="src"
+    />
+    <h2>
+      rick
+    </h2>
+    <p>
+      Status: alive
+    </p>
+  </div>
+</DocumentFragment>
+`;
